@@ -1,2 +1,4 @@
 /src/*
 !/src/.gitkeep
+!/src/laravelapp/
+!/src/laravelapp/**

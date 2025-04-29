@@ -1,15 +1,15 @@
 version: '3'
 services:
  app:
-   container_name: laravel_app
+   container_name: laravel_app_my_blog
    ports:
-     - "8080:80"
+     - "8082:80"
    build: ./Docker/App
    volumes:
      - ./src:/var/www/html
  db:
    image: mysql:5.7
-   container_name: laravel_db
+   container_name: laravel_db_my_blog
    environment:
      MYSQL_ROOT_PASSWORD: root
      MYSQL_DATABASE: laraveldb
@@ -23,11 +23,11 @@ services:
    ports:
      - 13306:3306
  adminer:
-    container_name: adminer
+    container_name: adminer_my_blog
     hostname: adminer
     image: adminer:4.7.5
     restart: always
     ports:
-      - 8088:8080
+      - 8089:8080
     depends_on:
       - db
