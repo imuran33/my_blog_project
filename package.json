@@ -1,0 +1,25 @@
+{
+  "name": "laravel_docker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imuran33/my_blog_project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imuran33/my_blog_project/issues"
+  },
+  "homepage": "https://github.com/imuran33/my_blog_project#readme",
+  "description": "",
+  "devDependencies": {
+    "laravel-vite-plugin": "^1.2.0",
+    "sass": "^1.87.0",
+    "sass-loader": "^10.5.2",
+    "vite": "^6.3.4"
+  }
+}
