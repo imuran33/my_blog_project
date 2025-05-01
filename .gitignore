@@ -2,3 +2,4 @@
 !/src/.gitkeep
 !/src/laravelapp/
 !/src/laravelapp/**
+node_modules/

@@ -15,6 +15,16 @@
         </div>
     </div>
 
-    <h2>ようこそ！</h2>
-    <p>ここはnakoが自由に書き連ねる場所です。</p>
+    <div class="welcome-page">
+        <h2>ようこそ！</h2>
+        <p>ここはnakoが自由に書き連ねる場所です。</p>
+        <p>好みのジャンルがあれば見ていってください。</p>
+
+        <div class="category-grid">
+            <div class="category-box">Programming</div>
+            <div class="category-box">Music</div>
+            <div class="category-box">Food</div>
+            <div class="category-box">Blog</div>
+        </div>
+    </div>
 @endsection
