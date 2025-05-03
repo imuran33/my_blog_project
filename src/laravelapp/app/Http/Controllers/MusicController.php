@@ -5,16 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 
-class ProgrammingController extends Controller
+class MusicController extends Controller
 {
     public function index()
     {
         // DBから投稿を取得（最新順）
-        $posts = Post::where('category', 'programming')
+        $posts = Post::where('category', 'music')
             ->orderBy('created_at', 'desc')
             ->get();
 
-        return view('categories.programming', compact('posts'));
+        return view('categories.music', compact('posts'));
     }
 
     public function show($id)
@@ -26,6 +26,6 @@ class ProgrammingController extends Controller
             abort(404);
         }
 
-        return view('categories.programming_detail', compact('post'));
+        return view('categories.music_detail', compact('post'));
     }
 }

@@ -20,11 +20,28 @@
         <p>ここはnakoが自由に書き連ねる場所です。</p>
         <p>好みのジャンルがあれば見ていってください。</p>
 
-        <div class="category-grid">
-            <div class="category-box">Programming</div>
-            <div class="category-box">Music</div>
-            <div class="category-box">Food</div>
-            <div class="category-box">Blog</div>
+        <div class="announcement">
+            <h3>📰 お知らせ</h3>
+            <ul>
+                @foreach ($latestPosts as $post)
+                    <li>
+                        {{ $post->created_at->format('Y年m月d日') }} ：
+                        <a href="{{ url('/' . $post->category . '/' . $post->id) }}">
+                            {{ $post->category }}カテゴリのブログが追加されました。
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+
+        <div class="category">
+            <h3>📝 ブログカテゴリ</h3>
+            <div class="category-grid">
+                <a href="{{ url('/programming') }}" class="category-box">Programming</a>
+                <a href="{{ url('/music') }}" class="category-box">Music</a>
+                <a href="{{ url('/food') }}" class="category-box">Food</a>
+                <a href="{{ url('/Diary') }}" class="category-box">Diary</a>
+            </div>
         </div>
     </div>
 @endsection
