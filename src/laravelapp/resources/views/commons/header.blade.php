@@ -12,15 +12,22 @@
                     <a href="{{ route('diary.index') }}">Diary</a>
                 </div>
             </div>
+
             <div class="dropdown">
-                <button class="dropbtn">アカウント</button>
-                <div class="dropdown-content">
-                    <a href="{{ route('signup') }}">新規登録</a>
-                    <a href="{{ "" }}">ログイン</a>
-                    <a href="{{ "" }}">ログアウト</a>
-                    <a href="{{ "" }}">マイページ</a>
-                    <a href="{{ "" }}">退会</a>
-                </div>
+                @if (Auth::check())
+                    <button class="dropbtn">ユーザー：{{ Auth::user()->name }}</button>
+                    <div class="dropdown-content">
+                        <a href="{{ '' }}">マイページ</a>
+                        <a href="#" id="logout-link">ログアウト</a>
+                        <a href="#" id="withdrawal-link">退会</a>
+                    </div>
+                @else
+                    <button class="dropbtn">アカウント</button>
+                    <div class="dropdown-content">
+                        <a href="{{ route('login') }}">ログイン</a>
+                        <a href="{{ route('signup') }}">新規登録</a>
+                    </div>
+                @endif
             </div>
         </nav>
     </div>

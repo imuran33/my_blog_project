@@ -5,6 +5,7 @@ use App\Http\Controllers\ProgrammingController;
 use App\Http\Controllers\MusicController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\DiaryController;
+use App\Http\Controllers\Auth\WithdrawController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,13 @@ Route::get('diary/{id}', [DiaryController::class, 'show'])->name('diary.show');
 // ユーザ新規登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
+
+// ログイン
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login')->name('login.post');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
+//退会
+Route::delete('withdrawal', 'Auth\WithdrawController@destroy')
+    ->middleware('auth')
+    ->name('withdrawal');

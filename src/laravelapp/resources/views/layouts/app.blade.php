@@ -16,26 +16,92 @@
     @include('commons.header')
 
     @if (session('status'))
-        <!-- モーダル -->
+        <!-- 新規完了登録などの通知モーダル -->
         <div id="modal" class="modal">
             <div class="modal-content">
                 <p>{{ session('status') }}</p>
                 <button id="closeModal">閉じる</button>
             </div>
         </div>
-
-        <script>
-            // ページ読み込み時にモーダルを表示
-            document.addEventListener('DOMContentLoaded', function() {
-                document.getElementById('modal').style.display = 'block';
-            });
-
-            // モーダルを閉じる処理
-            document.getElementById('closeModal').addEventListener('click', function() {
-                document.getElementById('modal').style.display = 'none';
-            });
-        </script>
     @endif
+
+    <!-- ログアウト確認モーダル -->
+    <div id="logout-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <p>ログアウトしますか？</p>
+            <button id="confirm-logout">はい</button>
+            <button id="cancel-logout">いいえ</button>
+        </div>
+    </div>
+
+    <!-- ログアウト用フォーム（非表示）-->
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
+
+    <!-- 退会確認モーダル -->
+    <div id="withdrawal-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <p>本当に退会しますか？</p>
+            <button id="confirm-withdrawal">はい</button>
+            <button id="cancel-withdrawal">いいえ</button>
+        </div>
+    </div>
+
+    <!-- 退会処理フォーム（非表示） -->
+    <form id="withdrawal-form" action="{{ route('withdrawal') }}" method="POST" style="display: none;">
+        @csrf
+        @method('DELETE')
+    </form>
+
+
+    <!-- ✅ モーダル用スクリプト -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 登録完了モーダルがあれば表示
+            const modal = document.getElementById('modal');
+            if (modal) {
+                modal.style.display = 'block';
+                document.getElementById('closeModal').addEventListener('click', function() {
+                    modal.style.display = 'none';
+                });
+            }
+
+            // ログアウト確認モーダルのイベント登録
+            const logoutLink = document.getElementById('logout-link');
+            if (logoutLink) {
+                logoutLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    document.getElementById('logout-modal').style.display = 'block';
+                });
+
+                document.getElementById('cancel-logout').addEventListener('click', function() {
+                    document.getElementById('logout-modal').style.display = 'none';
+                });
+
+                document.getElementById('confirm-logout').addEventListener('click', function() {
+                    document.getElementById('logout-form').submit();
+                });
+            }
+
+            // 退会確認モーダルのイベント登録
+            const withdrawalLink = document.getElementById('withdrawal-link');
+            if (withdrawalLink) {
+                withdrawalLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    document.getElementById('withdrawal-modal').style.display = 'block';
+                });
+
+                document.getElementById('cancel-withdrawal').addEventListener('click', function() {
+                    document.getElementById('withdrawal-modal').style.display = 'none';
+                });
+
+                document.getElementById('confirm-withdrawal').addEventListener('click', function() {
+                    document.getElementById('withdrawal-form').submit();
+                });
+            }
+        });
+    </script>
 
     <main class="{{ Request::is('/') ? 'welcome-main' : '' }}">
         @yield('content')
