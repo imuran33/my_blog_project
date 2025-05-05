@@ -32,3 +32,7 @@ Route::get('programming/{id}', [ProgrammingController::class, 'show'])->name('pr
 Route::get('music/{id}', [MusicController::class, 'show'])->name('music.show');
 Route::get('food/{id}', [FoodController::class, 'show'])->name('food.show');
 Route::get('diary/{id}', [DiaryController::class, 'show'])->name('diary.show');
+
+// ユーザ新規登録
+Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
+Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');

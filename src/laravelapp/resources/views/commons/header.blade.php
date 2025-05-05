@@ -15,7 +15,7 @@
             <div class="dropdown">
                 <button class="dropbtn">アカウント</button>
                 <div class="dropdown-content">
-                    <a href="{{ "" }}">新規登録</a>
+                    <a href="{{ route('signup') }}">新規登録</a>
                     <a href="{{ "" }}">ログイン</a>
                     <a href="{{ "" }}">ログアウト</a>
                     <a href="{{ "" }}">マイページ</a>

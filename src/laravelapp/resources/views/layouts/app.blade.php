@@ -15,6 +15,28 @@
 <body>
     @include('commons.header')
 
+    @if (session('status'))
+        <!-- モーダル -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <p>{{ session('status') }}</p>
+                <button id="closeModal">閉じる</button>
+            </div>
+        </div>
+
+        <script>
+            // ページ読み込み時にモーダルを表示
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById('modal').style.display = 'block';
+            });
+
+            // モーダルを閉じる処理
+            document.getElementById('closeModal').addEventListener('click', function() {
+                document.getElementById('modal').style.display = 'none';
+            });
+        </script>
+    @endif
+
     <main class="{{ Request::is('/') ? 'welcome-main' : '' }}">
         @yield('content')
     </main>
