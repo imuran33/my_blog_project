@@ -22,7 +22,7 @@
             <div class="form-item">
                 <label for="email">メールアドレス</label>
                 <input id="email" type="text" name="email" value="{{ old('email') }}">
-                @error('e-mail')
+                @error('email')
                     <div class="form-error">{{ $message }}</div>
                 @enderror
             </div>
