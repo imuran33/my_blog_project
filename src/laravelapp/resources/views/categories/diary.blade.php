@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'Food')
+@section('title', 'Diary')
 
 @section('content')
-    <div class="food-page">
+    <div class="diary-page">
         <h2>日記ページへようこそ！</h2>
         <p>ここはnakoがそのほか思ったことや感じたこと、体験をさらけ出す場所です。</p>
 
