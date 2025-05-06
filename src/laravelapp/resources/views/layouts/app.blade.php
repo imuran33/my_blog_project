@@ -55,8 +55,8 @@
     </form>
 
 
-    <!-- ✅ モーダル用スクリプト -->
     <script>
+        // ✅ モーダル用スクリプト
         document.addEventListener('DOMContentLoaded', function() {
             // 登録完了モーダルがあれば表示
             const modal = document.getElementById('modal');

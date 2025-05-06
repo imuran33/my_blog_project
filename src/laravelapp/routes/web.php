@@ -55,3 +55,6 @@ Route::get('mypage', [UsersController::class, 'showMyPage'])->name('showMyPage')
 //記事作成コマンド
 Route::get('create', 'PostController@create')->name('create.post');
 Route::post('create', 'PostController@store')->name('store.post');
+
+//画像保存用メソッド
+Route::post('/attachments', 'AttachmentController@store')->name('attachments.store');

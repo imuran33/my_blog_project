@@ -329,3 +329,12 @@ body {
   color: #f44336;
 }
 
+/* 記事内の画像サイズを制御 */
+
+.post-detail img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1em 0;
+}
+
