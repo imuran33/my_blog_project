@@ -5,7 +5,7 @@
 @section('content')
     <div class="post-detail">
         <h2>{{ $post->title }}</h2>
-        <p>{{ $post->content }}</p>
+        {!! $post->content !!}
         <a href="{{ url('/music') }}">← 一覧に戻る</a>
     </div>
 @endsection

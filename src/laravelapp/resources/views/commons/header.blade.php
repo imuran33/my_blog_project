@@ -17,7 +17,7 @@
                 @if (Auth::check())
                     <button class="dropbtn">ユーザー：{{ Auth::user()->name }}</button>
                     <div class="dropdown-content">
-                        <a href="{{ '' }}">マイページ</a>
+                        <a href="{{ route('showMyPage') }}">マイページ</a>
                         <a href="#" id="logout-link">ログアウト</a>
                         <a href="#" id="withdrawal-link">退会</a>
                     </div>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProgrammingController;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\MusicController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\DiaryController;
@@ -47,3 +48,10 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 Route::delete('withdrawal', 'Auth\WithdrawController@destroy')
     ->middleware('auth')
     ->name('withdrawal');
+
+//マイページ
+Route::get('mypage', [UsersController::class, 'showMyPage'])->name('showMyPage');
+
+//記事作成コマンド
+Route::get('create', 'PostController@create')->name('create.post');
+Route::post('create', 'PostController@store')->name('store.post');
