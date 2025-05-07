@@ -8,7 +8,14 @@
 @section('content')
     <div class="post-detail ql-editor quill-content">
         <h2>{{ $post->title }}</h2>
-        {!! $post->content !!}
+        <div class="quill-detail ql-editor">
+            {!! $post->content !!}
+        </div>
         <a href="{{ url('/programming') }}">← 一覧に戻る</a>
+
+        <!-- 管理者のみ表示されるリンク -->
+        @if (Auth::check() && Auth::user()->is_admin)
+            <a href="{{ route('edit.post', $post->id) }}">記事を編集</a>
+        @endif
     </div>
 @endsection

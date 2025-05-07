@@ -6,6 +6,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\MusicController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\DiaryController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\Auth\WithdrawController;
 
 /*
@@ -58,3 +59,7 @@ Route::post('create', 'PostController@store')->name('store.post');
 
 //画像保存用メソッド
 Route::post('/attachments', 'AttachmentController@store')->name('attachments.store');
+
+// 投稿編集コマンド
+Route::get('/post/{id}/edit', 'PostController@edit')->name('edit.post');
+Route::post('/post/{id}/update', 'PostController@update')->name('update.post');

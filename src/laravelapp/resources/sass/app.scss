@@ -311,20 +311,34 @@ body {
 
 /* 記事内の画像サイズを制御 */
 .post-detail img {
-    max-width: 100%;
-    height: auto;
     display: block;
-    margin: 1em 0; // 任意：画像の上下に余白
-  }
-
-  .quill-detail {
-    text-align: left ; /* ベースは左揃え */
+    margin: 1em auto; // 任意：画像の上下に余白
 }
 
-.post-detail .ql-align-center {
-    text-align: center !important;
+/* .post-detailのデフォルトは左揃え */
+.post-detail {
+    text-align: left; 
 }
 
-.post-detail .ql-align-right {
-    text-align: right !important;
+/* h2 と a のみ中央揃え */
+.post-detail > h2,
+.post-detail > a {
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+
+/* quill-detail の中の要素は左揃えを維持 */
+.quill-detail {
+    text-align: left;
+}
+
+/* Quill内にあるすべての h1〜h6 は左揃えにする */
+.quill-detail h1,
+.quill-detail h2,
+.quill-detail h3,
+.quill-detail h4,
+.quill-detail h5,
+.quill-detail h6 {
+    text-align: left !important;
 }
