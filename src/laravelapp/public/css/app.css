@@ -338,3 +338,16 @@ body {
   margin: 1em 0;
 }
 
+.quill-detail {
+  text-align: left;
+  /* ベースは左揃え */
+}
+
+.post-detail .ql-align-center {
+  text-align: center !important;
+}
+
+.post-detail .ql-align-right {
+  text-align: right !important;
+}
+

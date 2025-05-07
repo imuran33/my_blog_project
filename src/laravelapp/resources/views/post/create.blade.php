@@ -5,6 +5,9 @@
 <!-- Quill JS -->
 <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
 
+<!-- Quill Image Resize Module -->
+<script src="https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/image-resize.min.js"></script>
+
 @extends('layouts.app')
 
 @section('title', '記事作成')
@@ -43,12 +46,22 @@
                         }, {
                             'list': 'bullet'
                         }],
+                        [{
+                            'align': []
+                        }], //←揃え
+                        [{
+                            'color': []
+                        }, {
+                            'background': []
+                        }], // ← 色
+                        ['code', 'code-block'], // ← コード系
                         ['link', 'image']
                     ],
                     handlers: {
                         image: imageHandler
                     }
-                }
+                },
+                imageResize: {} // 画像リサイズ用スクリプト
             }
         });
 

@@ -316,3 +316,15 @@ body {
     display: block;
     margin: 1em 0; // 任意：画像の上下に余白
   }
+
+  .quill-detail {
+    text-align: left ; /* ベースは左揃え */
+}
+
+.post-detail .ql-align-center {
+    text-align: center !important;
+}
+
+.post-detail .ql-align-right {
+    text-align: right !important;
+}
