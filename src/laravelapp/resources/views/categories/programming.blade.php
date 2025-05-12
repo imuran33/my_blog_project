@@ -3,7 +3,7 @@
 @section('title', 'Programming')
 
 @section('content')
-    <div class="programming-page">
+    <div class="categories programming-page">
         <h2>プログラミングページへようこそ！</h2>
         <p>ここはnakoが書いたプログラミングやコードをさらけ出す場所です</p>
 

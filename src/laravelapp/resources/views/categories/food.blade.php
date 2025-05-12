@@ -3,7 +3,7 @@
 @section('title', 'Food')
 
 @section('content')
-    <div class="food-page">
+    <div class="categories food-page">
         <h2>食べ物ページへようこそ！</h2>
         <p>ここはnakoが食べたごはんやおやつをさらけ出す場所です</p>
 

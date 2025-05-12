@@ -346,3 +346,13 @@ body {
 .post-detail a {
     cursor: pointer;
   }
+
+.categories ul {
+    list-style: none;
+    margin: 1rem;
+    padding:2rem;
+}
+
+.categories ul li {
+    margin-bottom: 10px;
+  }
