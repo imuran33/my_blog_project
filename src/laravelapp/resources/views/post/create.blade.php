@@ -8,6 +8,12 @@
 <!-- Quill Image Resize Module -->
 <script src="https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/image-resize.min.js"></script>
 
+<!-- Tagify CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css">
+
+<!-- Tagify JS -->
+<script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
+
 @extends('layouts.app')
 
 @section('title', '記事作成')
@@ -23,6 +29,8 @@
             <option value="food">食べ物</option>
             <option value="diary">日記</option>
         </select>
+        
+        <input name="tags" id="tags" placeholder="タグを入力（カンマ区切り）">
 
         <div id="editor-container" style="height: 300px;"></div>
         <input type="hidden" name="content" id="content">
@@ -104,6 +112,15 @@
         // 投稿時にQuillの中身を hidden に書き出す
         document.getElementById('post-form').addEventListener('submit', function() {
             document.getElementById('content').value = quill.root.innerHTML;
+        });
+
+        const input = document.querySelector('input[name=tags]');
+        const tagify = new Tagify(input, {
+            whitelist: @json($tags->pluck('name')), // 既存タグ
+            dropdown: {
+                enabled: 1,
+                maxItems: 10,
+            }
         });
     </script>
 @endsection

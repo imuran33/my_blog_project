@@ -8,6 +8,15 @@
 @section('content')
     <div class="post-detail">
         <h2>{{ $post->title }}</h2>
+
+        <!-- タグ表示 -->
+        <div class="tags">
+            <span class="tag-label">#タグ</span>
+            @foreach ($post->tags as $tag)
+                <span class="tag-badge">{{ $tag->name }}</span>
+            @endforeach
+        </div>
+
         <div class="quill-detail ql-editor">
             {!! $post->content !!}
         </div>

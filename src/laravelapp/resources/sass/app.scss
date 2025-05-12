@@ -356,3 +356,50 @@ body {
 .categories ul li {
     margin-bottom: 10px;
   }
+
+  input[type="text"],
+  select,
+  .tagify {
+      width: 100%;
+      max-width: 300px;       /* お好みで */
+      font-size: 14px;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      margin-top: 1rem;     /* 間隔調整 */
+      margin-bottom: 1rem;     /* 間隔調整 */
+  }
+  
+  /* Tagifyが生成する入力部分にも調整 */
+  .tagify__input {
+      min-height: unset !important;
+      line-height: 1.2;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+  }
+
+  .tag-badge {
+    display: inline-block;
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 4px 12px;
+    margin: 2px 4px; /* 少し控えめに */
+    font-size: 0.9em;
+}
+
+.tags {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 2px 0; /* 上下の余白を明示的に制御 */
+}
+
+.tag-label {
+    font-weight: lighter;
+}
