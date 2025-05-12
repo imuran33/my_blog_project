@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Post;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
@@ -12,5 +13,17 @@ class UsersController extends Controller
         $latestPosts = Post::orderBy('created_at', 'desc')->take(5)->get(); // 最新5件
 
         return view('welcome', compact('latestPosts'));
+    }
+
+    public function showMyPage()
+    {
+        $user = Auth::user();
+    
+        // 管理者であれば投稿機能を表示
+        if ($user->isAdmin()) {
+            return view('commons.mypage', ['canPost' => true]);
+        }
+    
+        return view('commons.mypage', ['canPost' => false]);
     }
 }

@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -29,7 +30,17 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/';
+
+        // 新規登録後の処理
+        protected function registered(Request $request, $user)
+        {
+            // 登録完了のメッセージをセッションに保存
+            session()->flash('status', '新規登録が完了しました！');
+    
+            // リダイレクト
+            return redirect($this->redirectTo);
+        }
 
     /**
      * Create a new controller instance.
