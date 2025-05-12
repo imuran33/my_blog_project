@@ -368,3 +368,7 @@ body {
   text-align: left !important;
 }
 
+.post-detail a {
+  cursor: pointer;
+}
+
