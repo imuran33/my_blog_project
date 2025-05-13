@@ -20,6 +20,17 @@
         <p>ここはnakoが自由に書き連ねる場所です。</p>
         <p>好みのジャンルがあれば見ていってください。</p>
 
+        <div class="search-box">
+            <h3>🔍 記事検索</h3>
+            <form action="{{ route('post.search') }}" method="GET" class="search-form">
+                <input type="text" name="keyword" placeholder="キーワードで検索" value="{{ request('keyword') }}">
+                <button type="submit">検索</button>
+            </form>
+            @if (session('error'))
+                <div class="form-error">{{ session('error') }}</div>
+            @endif
+        </div>
+
         <div class="announcement">
             <h3>📰 お知らせ</h3>
             <ul>

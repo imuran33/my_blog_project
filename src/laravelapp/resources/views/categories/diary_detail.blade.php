@@ -13,7 +13,7 @@
         <div class="tags">
             <span class="tag-label">#タグ</span>
             @foreach ($post->tags as $tag)
-                <span class="tag-badge">{{ $tag->name }}</span>
+                <a href="{{ route('tag.posts', $tag->name) }}" class="tag-badge">{{ $tag->name }}</a>
             @endforeach
         </div>
 

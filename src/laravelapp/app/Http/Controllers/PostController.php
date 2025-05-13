@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Tag;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -74,5 +75,27 @@ class PostController extends Controller
         }
 
         return redirect("/{$post->category}/{$post->id}")->with('status', '編集が完了しました！');
+    }
+
+    public function search(Request $request)
+    {
+        $keyword = $request->input('keyword');
+
+        $query = Post::query();
+
+        if (!empty($keyword)) {
+            $query->where(function ($q) use ($keyword) {
+                $q->where('title', 'like', "%{$keyword}%")
+                    ->orWhere('content', 'like', "%{$keyword}%");
+            });
+        }
+
+        if (trim($request->keyword) === '') {
+            return redirect()->back()->with('error', '検索ワードを入力してください');
+        }
+
+        $posts = $query->latest()->paginate(10);
+
+        return view('search.results', compact('posts', 'keyword'));
     }
 }
