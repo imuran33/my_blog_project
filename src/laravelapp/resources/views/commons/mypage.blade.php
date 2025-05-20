@@ -5,13 +5,26 @@
 @endsection
 
 @section('content')
-    <div>
-        <h3>マイページ</h3>
+    <div class="mypage-container">
+        <div class="sidebar">
+            <div class="user-info">
+                <h2 class="section-title">プロフィール</h2>
+                <hr class="section-divider">
+                <h2>{{ Auth::user()->name }}</h2>
+                <p>{{ Auth::user()->email }}</p>
+                @if ($canPost)
+                    <a href="{{ route('create.post') }}" class="post-button">投稿作成</a>
+                @endif
+            </div>
+        </div>
+        <div class="main-content">
+            <h3>いいねした記事</h3>
+            <hr class="section-divider">
+            @foreach ($favorites as $post)
+                @include('post.post_card', ['post' => $post])
+            @endforeach
+
+            {{ $favorites->links() }}
+        </div>
     </div>
-    <div>
-        <p>ここでは、実行したいいねやコメントが確認・編集できるようになります。</p>
-    </div>
-    @if ($canPost)
-        <a href="{{ route('create.post') }}">投稿作成</a>
-    @endif
 @endsection

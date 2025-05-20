@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Post;
+use App\User;
 use Illuminate\Support\Facades\Auth;
-
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -18,12 +18,19 @@ class UsersController extends Controller
     public function showMyPage()
     {
         $user = Auth::user();
+        $favorites = $user->favoritePosts()->latest()->paginate(10);
     
         // 管理者であれば投稿機能を表示
         if ($user->isAdmin()) {
-            return view('commons.mypage', ['canPost' => true]);
+            return view('commons.mypage', [
+                'canPost' => true,
+                'favorites' => $favorites,
+            ]);
         }
     
-        return view('commons.mypage', ['canPost' => false]);
+        return view('commons.mypage', [
+            'canPost' => false,
+            'favorites' => $favorites,
+        ]);
     }
 }

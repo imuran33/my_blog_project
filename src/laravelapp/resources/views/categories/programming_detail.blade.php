@@ -17,6 +17,8 @@
             @endforeach
         </div>
 
+        @include('favorite.favorite_button', ['post' => $post])
+
         <div class="quill-detail ql-editor">
             {!! $post->content !!}
         </div>

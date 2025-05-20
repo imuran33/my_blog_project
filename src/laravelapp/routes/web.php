@@ -29,6 +29,7 @@ Route::prefix('/')->group(function () {
     Route::get('music', [MusicController::class, 'index'])->name('music.index');
     Route::get('food', [FoodController::class, 'index'])->name('food.index');
     Route::get('diary', [DiaryController::class, 'index'])->name('diary.index');
+    Route::get('favorites', 'UsersController@favorites')->name('user.favorites');
 });
 
 // 記事詳細ページ
@@ -45,6 +46,15 @@ Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
+// ログイン後
+Route::group(['middleware' => 'auth'], function () {
+    // いいね実行・削除
+    Route::group(['prefix' => 'posts/{id}'], function () {
+        Route::post('favorite', 'FavoriteController@store')->name('favorite');
+        Route::delete('unfavorite', 'FavoriteController@destroy')->name('unfavorite');
+    });
+});
 
 //退会
 Route::delete('withdrawal', 'Auth\WithdrawController@destroy')

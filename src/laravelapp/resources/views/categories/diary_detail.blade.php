@@ -6,7 +6,7 @@
 @section('title', $post['title'])
 
 @section('content')
-    <div class="post-detail">
+    <div class="post-detail ql-editor quill-content">
         <h2>{{ $post->title }}</h2>
 
         <!-- タグ表示 -->
@@ -16,6 +16,8 @@
                 <a href="{{ route('tag.posts', $tag->name) }}" class="tag-badge">{{ $tag->name }}</a>
             @endforeach
         </div>
+
+        @include('favorite.favorite_button', ['post' => $post])
 
         <div class="quill-detail ql-editor">
             {!! $post->content !!}

@@ -216,6 +216,15 @@ body {
     margin-bottom: 0.3rem;
 }
 
+.search-box h3 {
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 0.05em;    /* 文字間隔を少し空ける */
+    color: rgb(2, 48, 146);
+    margin-bottom: 0.5rem;
+}
+
 .search-box {
     border-top: 2px solid #00a0dc; /* 上線を追加 */
     background-color: #f5f5f5;
@@ -437,4 +446,192 @@ body {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+}
+
+//いいね系
+.favorite-button {
+    position: relative;
+    display: inline-block;
+    margin: 5px;
+}
+
+.favorite-button button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.favorite-button i {
+    font-size: 18px;
+    color: #ccc;
+    transition: color 0.3s;
+}
+
+.favorite-button .fas.fa-heart {
+    color: #ff5a5f;
+}
+
+.favorite-button .count {
+    font-size: 14px;
+    color: #333;
+}
+
+.favorite-button .icon-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px; /* 必要に応じて調整 */
+    height: 24px;
+    padding: 0;
+    margin: 0;
+}
+
+.favorite-button .tooltip {
+    visibility: hidden;
+    opacity: 0;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 4px 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 12px;
+    transition: opacity 0.3s;
+}
+
+.favorite-button:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+//マイページ
+.mypage-container {
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.sidebar {
+    width: 250px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.user-info img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-info h2 {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.user-info p {
+    color: #666;
+    font-size: 14px;
+}
+
+.post-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.main-content {
+    flex-grow: 1;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.favorite-post {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+}
+
+.favorite-post h4 {
+    margin-bottom: 5px;
+}
+
+.section-title {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.section-divider {
+    border: none;
+    border-top: 2px solid #ccc;
+    margin-bottom: 15px;
+}
+
+//記事一覧
+.post-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+    text-align: left; /* ← 中央寄せを上書き */
+}
+
+.post-thumbnail img {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    text-align: right; /* ← 中央寄せを上書き */
+}
+
+.post-content {
+    flex: 1;
+    text-align: left; /* ← 中央寄せを上書き */
+}
+
+.post-title {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.post-meta {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0.5rem 0;
+    display: flex;
+    gap: 1rem;
+}
+
+.post-tags {
+    margin-top: 0.5rem;
+}
+
+.tag {
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 0.8rem;
+    margin-right: 5px;
 }

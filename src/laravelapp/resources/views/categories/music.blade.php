@@ -9,9 +9,7 @@
 
         <ul>
             @foreach ($posts as $post)
-                <li>
-                    <a href="{{ url('/music/' . $post['id']) }}">{{ $post['title'] }}</a>
-                </li>
+                @include('post.post_card', ['post' => $post])
             @endforeach
         </ul>
     </div>
