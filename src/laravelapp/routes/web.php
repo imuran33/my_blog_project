@@ -7,6 +7,7 @@ use App\Http\Controllers\MusicController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\DiaryController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\Auth\WithdrawController;
 
 /*
@@ -63,3 +64,7 @@ Route::post('/attachments', 'AttachmentController@store')->name('attachments.sto
 // 投稿編集コマンド
 Route::get('/post/{id}/edit', 'PostController@edit')->name('edit.post');
 Route::post('/post/{id}/update', 'PostController@update')->name('update.post');
+
+//検索機能
+Route::get('/tag/{name}', [TagController::class, 'showPostsByTag'])->name('tag.posts');
+Route::get('/search', [PostController::class, 'search'])->name('post.search');

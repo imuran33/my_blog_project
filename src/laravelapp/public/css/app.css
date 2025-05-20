@@ -231,6 +231,14 @@ body {
   margin-bottom: 0.3rem;
 }
 
+.search-box {
+  border-top: 2px solid #00a0dc;
+  /* 上線を追加 */
+  background-color: #f5f5f5;
+  padding: 1rem;
+  margin: 2rem 0;
+}
+
 .site-footer {
   background-color: rgba(122, 203, 225, 0.1);
   color: rgb(2, 48, 146);
@@ -246,7 +254,7 @@ body {
   border-radius: 8px;
 }
 
-.signup-form .form-item {
+.signup-form .signupform-item {
   margin-bottom: 1.5rem;
   text-align: left;
 }
@@ -258,12 +266,21 @@ body {
   color: #333;
 }
 
-.signup-form input {
+.signup-form input[type=text],
+.signup-form input[type=password] {
+  max-width: none;
+  /* ← 上書き */
   width: 100%;
   padding: 0.5rem;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+  box-sizing: content-box;
+  /* or border-box に上書き */
+  margin-top: 0;
+  /* or your desired value */
+  margin-bottom: 0;
+  /* or your desired value */
 }
 
 .submit-button {
@@ -369,6 +386,95 @@ body {
 }
 
 .post-detail a {
+  cursor: pointer;
+}
+
+.categories ul {
+  list-style: none;
+  margin: 1rem;
+  padding: 2rem;
+}
+
+.categories ul li {
+  margin-bottom: 10px;
+}
+
+input[type=text],
+select,
+.tagify {
+  width: 100%;
+  max-width: 300px;
+  /* お好みで */
+  font-size: 14px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-top: 1rem;
+  /* 間隔調整 */
+  margin-bottom: 1rem;
+  /* 間隔調整 */
+}
+
+/* Tagifyが生成する入力部分にも調整 */
+
+.tagify__input {
+  min-height: unset !important;
+  line-height: 1.2;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.tag-badge {
+  display: inline-block;
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 4px 12px;
+  margin: 2px 4px;
+  /* 少し控えめに */
+  font-size: 0.9em;
+}
+
+.tags {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 2px 0;
+  /* 上下の余白を明示的に制御 */
+}
+
+.tag-label {
+  font-weight: lighter;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* or flex-start */
+  gap: 8px;
+}
+
+.search-form input[type=text] {
+  flex: 1;
+  padding: 8px;
+  font-size: 1em;
+}
+
+.search-form button {
+  font-size: 0.9em;
+  line-height: 1;
+  padding: 8px 16px;
+  min-height: 36px;
+  background-color: #3490dc;
+  color: white;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
 }
 

@@ -3,7 +3,7 @@
 @section('title', 'Diary')
 
 @section('content')
-    <div class="diary-page">
+    <div class="categories diary-page">
         <h2>日記ページへようこそ！</h2>
         <p>ここはnakoがそのほか思ったことや感じたこと、体験をさらけ出す場所です。</p>
 

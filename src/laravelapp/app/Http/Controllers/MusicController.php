@@ -19,7 +19,7 @@ class MusicController extends Controller
 
     public function show($id)
     {
-        $post = Post::find($id);
+        $post = Post::with('tags')->findOrFail($id);
 
         // 投稿が存在しない場合は404
         if (!$post) {

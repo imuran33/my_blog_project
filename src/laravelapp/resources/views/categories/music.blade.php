@@ -3,7 +3,7 @@
 @section('title', 'Music')
 
 @section('content')
-    <div class="music-page">
+    <div class="categories music-page">
         <h2>ミュージックページへようこそ！</h2>
         <p>ここはnakoがつくった曲や弾いてみた動画をさらけ出す場所です</p>
 
