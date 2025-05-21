@@ -4,8 +4,23 @@
     preg_match('/<img[^>]+src=[\'"]([^\'"]+)[\'"]/i', $post->content, $matches);
     $thumbnail = $matches[1] ?? '/images/no-image.png';
 
+    // 投稿に画像があるか判定
+    $hasImage = !empty($matches[1]);
+
+    // カテゴリごとのデフォルト画像（public/images/defaults フォルダを想定）
+    $defaultThumbnails = [
+        'programming' => '/images/defaults/programming.jpg',
+        'food' => '/images/defaults/food.jpg',
+        'music' => '/images/defaults/music.jpg',
+        'diary' => '/images/defaults/diary.jpg',
+        'memoir' => '/images/defaults/memoir.jpg',
+    ];
+
+    // 投稿に画像があればそれを、なければカテゴリに応じた画像を使う
+    $thumbnail = $hasImage ? $matches[1] : ($defaultThumbnails[$post->category] ?? '/images/no-image.png');
+
     // カテゴリからルート生成（例: programming.show）
-    $route = route($post->category . '.show', $post->id);
+    $route = route('category.show', ['category' => $post->category, 'id' => $post->id]);
 @endphp
 
 <div class="post-card">

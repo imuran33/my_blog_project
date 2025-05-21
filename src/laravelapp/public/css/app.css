@@ -490,13 +490,30 @@ select,
 
 .favorite-button {
   position: relative;
-  display: inline-block;
-  margin: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: auto;
+  /* 必要なら固定でもOK */
+  padding: 0;
+  /* 念のため余白リセット */
 }
 
 .favorite-button button {
   display: flex;
   align-items: center;
+  gap: 5px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.favorite-button .button-content {
+  display: flex;
+  align-items: center;
+  height: 100%;
   gap: 5px;
   background-color: transparent;
   border: none;

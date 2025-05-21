@@ -22,21 +22,14 @@ use App\Http\Controllers\Auth\WithdrawController;
 */
 
 Route::get('/', 'UsersController@index');
+//いいね表示
+Route::get('favorites', 'UsersController@favorites')->name('user.favorites');
 
 // 一覧ページ
-Route::prefix('/')->group(function () {
-    Route::get('programming', [ProgrammingController::class, 'index'])->name('programming.index');
-    Route::get('music', [MusicController::class, 'index'])->name('music.index');
-    Route::get('food', [FoodController::class, 'index'])->name('food.index');
-    Route::get('diary', [DiaryController::class, 'index'])->name('diary.index');
-    Route::get('favorites', 'UsersController@favorites')->name('user.favorites');
-});
+Route::get('{category}', [PostController::class, 'index'])->name('category.index');
 
 // 記事詳細ページ
-Route::get('programming/{id}', [ProgrammingController::class, 'show'])->name('programming.show');
-Route::get('music/{id}', [MusicController::class, 'show'])->name('music.show');
-Route::get('food/{id}', [FoodController::class, 'show'])->name('food.show');
-Route::get('diary/{id}', [DiaryController::class, 'show'])->name('diary.show');
+Route::get('{category}/{id}', [PostController::class, 'show'])->name('category.show');
 
 // ユーザ新規登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');

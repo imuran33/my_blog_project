@@ -48,10 +48,11 @@
         <div class="category">
             <h3>📝 ブログカテゴリ</h3>
             <div class="category-grid">
-                <a href="{{ route('programming.index') }}" class="category-box">Programming</a>
-                <a href="{{ route('music.index') }}" class="category-box">Music</a>
-                <a href="{{ route('food.index') }}" class="category-box">Food</a>
-                <a href="{{ route('diary.index') }}" class="category-box">Diary</a>
+                <a href="{{ route('category.index', ['category' => 'programming']) }}" class="category-box">Programming</a>
+                <a href="{{ route('category.index', ['category' => 'music']) }}" class="category-box">Music</a>
+                <a href="{{ route('category.index', ['category' => 'food']) }}" class="category-box">Food</a>
+                <a href="{{ route('category.index', ['category' => 'dialy']) }}" class="category-box">Dialy</a>
+                <a href="{{ route('category.index', ['category' => 'memoir']) }}" class="category-box">Memoir</a>
             </div>
         </div>
     </div>

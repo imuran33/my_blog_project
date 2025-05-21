@@ -11,6 +11,66 @@ use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
+    protected $validCategories = ['programming', 'music', 'food', 'diary', 'memoir'];
+
+    public function index($category)
+    {
+        if (!in_array($category, $this->validCategories)) {
+            abort(404);
+        }
+
+        $posts = Post::where('category', $category)->latest()->paginate(10);
+
+        // カテゴリごとの表示文言
+        $categoryTitles = [
+            'programming' => [
+                'title' => 'Programming',
+                'heading' => 'プログラミングページへようこそ！',
+                'description' => 'ここはnakoが作ったものや学んだことを記録する場所です。',
+            ],
+            'music' => [
+                'title' => 'Music',
+                'heading' => '音楽ページへようこそ！',
+                'description' => 'ここはnakoが好きな音楽や作った曲などを記録する場所です。',
+            ],
+            'food' => [
+                'title' => 'Food',
+                'heading' => '食べ物ページへようこそ！',
+                'description' => 'ここはnakoが食べたごはんやおやつをさらけ出す場所です。',
+            ],
+            'diary' => [
+                'title' => 'Diary',
+                'heading' => '日記ページへようこそ！',
+                'description' => 'ここはnakoがそのほか思ったことや感じたこと、体験をさらけ出す場所です。',
+            ],
+            'memoir' => [
+                'title' => 'Memoir',
+                'heading' => '回想ページへようこそ！',
+                'description' => 'ここはある人間の過去を記録する場所です。',
+            ],
+        ];
+
+        $info = $categoryTitles[$category] ?? [
+            'title' => ucfirst($category),
+            'heading' => 'ようこそ！',
+            'description' => '',
+        ];
+
+        // カテゴリごとにビューを分けたいなら：category.blade.phpなどに分岐も可能
+        return view('categories.index', compact('posts', 'category', 'info'));
+    }
+
+    public function show($category, $id)
+    {
+        if (!in_array($category, $this->validCategories)) {
+            abort(404);
+        }
+
+        $post = Post::where('id', $id)->where('category', $category)->firstOrFail();
+
+        return view('categories.detail', compact('post', 'category'));
+    }
+
     public function create()
     {
         $tags = Tag::all(); // タグ一覧取得

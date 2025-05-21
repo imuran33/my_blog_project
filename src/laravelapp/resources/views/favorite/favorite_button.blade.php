@@ -26,8 +26,12 @@
 @else
     {{-- 非ログイン or 自分の投稿の場合 --}}
     <div class="favorite-button">
-        <i class="far fa-heart"></i>
-        <span class="count">{{ $post->favoriteUsers()->count() }}</span>
-        <span class="tooltip">いいね</span>
+        <div class="button-content">
+            <span class="icon-wrapper">
+                <i class="far fa-heart"></i>
+                <span class="tooltip">いいね</br>（したい場合はログイン）</span>
+            </span>
+            <span class="count">{{ $post->favoriteUsers()->count() }}</span>
+        </div>
     </div>
 @endif
