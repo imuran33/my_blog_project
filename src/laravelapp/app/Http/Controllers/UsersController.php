@@ -10,6 +10,7 @@ class UsersController extends Controller
 {
     public function index()
     {
+        $status = session('status'); // ← ここで受け取る
         $latestPosts = Post::orderBy('created_at', 'desc')->take(5)->get(); // 最新5件
 
         return view('welcome', compact('latestPosts'));

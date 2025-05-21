@@ -22,25 +22,43 @@ body {
 
 .category-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 200px 200px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1rem;
   margin-top: 3rem;
   /* 上にスペース */
 }
 
 .category-box {
-  display: block;
-  /* ブロック化 */
+  display: flex;
+  flex-direction: column;
+  /* 縦並びにする */
+  align-items: center;
+  /* ← 横方向の中央揃え */
   background-color: #94bcb7;
   padding: 1rem;
   color: #fff;
   text-decoration: none;
   /* 下線削除 */
+  overflow: hidden;
+  /* ✅ はみ出し防止 */
 }
 
 .category-box:hover {
   background-color: #518c84;
+}
+
+.category-box img {
+  width: 100%;
+  height: 160px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 0.5rem;
+  border-radius: 10%;
+  background-color: white;
+}
+
+.category-box span {
+  font-size: 1.1rem;
 }
 
 .welcome-page h2 {

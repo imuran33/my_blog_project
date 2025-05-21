@@ -21,15 +21,9 @@ use App\Http\Controllers\Auth\WithdrawController;
 |
 */
 
-Route::get('/', 'UsersController@index');
+Route::get('/', 'UsersController@index')->name('welcome');
 //いいね表示
 Route::get('favorites', 'UsersController@favorites')->name('user.favorites');
-
-// 一覧ページ
-Route::get('{category}', [PostController::class, 'index'])->name('category.index');
-
-// 記事詳細ページ
-Route::get('{category}/{id}', [PostController::class, 'show'])->name('category.show');
 
 // ユーザ新規登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
@@ -71,3 +65,9 @@ Route::post('/post/{id}/update', 'PostController@update')->name('update.post');
 //検索機能
 Route::get('/tag/{name}', [TagController::class, 'showPostsByTag'])->name('tag.posts');
 Route::get('/search', [PostController::class, 'search'])->name('post.search');
+
+// 一覧ページ
+Route::get('{category}', [PostController::class, 'index'])->name('category.index');
+
+// 記事詳細ページ
+Route::get('{category}/{id}', [PostController::class, 'show'])->name('category.show');

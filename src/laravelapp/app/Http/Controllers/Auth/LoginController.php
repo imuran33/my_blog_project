@@ -65,8 +65,7 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         $greeting = $this->getGreeting(); // あいさつ取得
-        session()->flash('status', "{$user->name}さん、{$greeting}");
-        return redirect()->intended($this->redirectPath());
+        return redirect()->route('welcome')->with('status', "{$user->name}さん、{$greeting}");
     }
 
     // 挨拶を時間帯で返す

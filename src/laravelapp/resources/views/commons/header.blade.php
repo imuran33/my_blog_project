@@ -6,11 +6,11 @@
                 <button class="dropbtn">コンテンツ</button>
                 <div class="dropdown-content">
                     <a href="{{ url('/') }}">Home</a>
-                    <a href="{{ route('category.index', ['category' => 'programming']) }}"class="category-box">Programming</a>
-                    <a href="{{ route('category.index', ['category' => 'music']) }}" class="category-box">Music</a>
-                    <a href="{{ route('category.index', ['category' => 'food']) }}" class="category-box">Food</a>
-                    <a href="{{ route('category.index', ['category' => 'diary']) }}" class="category-box">Diary</a>
-                    <a href="{{ route('category.index', ['category' => 'memoir']) }}" class="category-box">Memoir</a>
+                    <a href="{{ route('category.index', ['category' => 'programming']) }}">Programming</a>
+                    <a href="{{ route('category.index', ['category' => 'music']) }}">Music</a>
+                    <a href="{{ route('category.index', ['category' => 'food']) }}">Food</a>
+                    <a href="{{ route('category.index', ['category' => 'diary']) }}">Diary</a>
+                    <a href="{{ route('category.index', ['category' => 'memoir']) }}">Memoir</a>
                 </div>
             </div>
 
