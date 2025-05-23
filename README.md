@@ -16,8 +16,8 @@
 
 ## 🛠️ セットアップ手順
 ```bash
-git clone https://github.com/nako/may_blog_project.git
-cd your-project
+git clone https://github.com/imuran33/my_blog_project.git
+cd my_blog_project
 cp .env.example .env
 composer install
 php artisan key:generate
