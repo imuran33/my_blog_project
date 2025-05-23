@@ -26,22 +26,22 @@ class PostController extends Controller
             'programming' => [
                 'title' => 'Programming',
                 'heading' => 'プログラミングページへようこそ！',
-                'description' => 'ここはnakoが作ったものや学んだことを記録する場所です。',
+                'description' => 'ここは〇〇が作ったものや学んだことを記録する場所です。',
             ],
             'music' => [
                 'title' => 'Music',
                 'heading' => '音楽ページへようこそ！',
-                'description' => 'ここはnakoが好きな音楽や作った曲などを記録する場所です。',
+                'description' => 'ここは〇〇が好きな音楽や作った曲などを記録する場所です。',
             ],
             'food' => [
                 'title' => 'Food',
                 'heading' => '食べ物ページへようこそ！',
-                'description' => 'ここはnakoが食べたごはんやおやつをさらけ出す場所です。',
+                'description' => 'ここは〇〇が食べたごはんやおやつをさらけ出す場所です。',
             ],
             'diary' => [
                 'title' => 'Diary',
                 'heading' => '日記ページへようこそ！',
-                'description' => 'ここはnakoがそのほか思ったことや感じたこと、体験をさらけ出す場所です。',
+                'description' => 'ここは〇〇がそのほか思ったことや感じたこと、体験をさらけ出す場所です。',
             ],
             'memoir' => [
                 'title' => 'Memoir',

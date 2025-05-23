@@ -19,6 +19,7 @@
                     <div class="form-error">{{ $message }}</div>
                 @enderror
             </div>
+            
             <div class="form-item">
                 <label for="email">メールアドレス</label>
                 <input id="email" type="text" name="email" value="{{ old('email') }}">
@@ -26,6 +27,7 @@
                     <div class="form-error">{{ $message }}</div>
                 @enderror
             </div>
+            
             <div class="form-item">
                 <label for="password">パスワード</label>
                 <input id="password" type="password" name="password" value="{{ old('password') }}">
@@ -33,6 +35,7 @@
                     <div class="form-error">{{ $message }}</div>
                 @enderror
             </div>
+            
             <div class="form-item">
                 <label for="password_confirmation">パスワード確認</label>
                 <input id="password_confirmation" type="password" name="password_confirmation"
@@ -41,6 +44,7 @@
                     <div class="form-error">{{ $message }}</div>
                 @enderror
             </div>
+
             <button type="submit" class="submit-button">新規登録</button>
         </form>
     </div>

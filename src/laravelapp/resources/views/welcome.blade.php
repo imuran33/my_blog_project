@@ -17,7 +17,7 @@
 
     <div class="welcome-page">
         <h2>ようこそ！</h2>
-        <p>ここはnakoが自由に書き連ねる場所です。</p>
+        <p>ここは〇〇が自由に書き連ねる場所です。</p>
         <p>好みのジャンルがあれば見ていってください。</p>
 
         <div class="search-box">
@@ -49,24 +49,24 @@
             <h3>📝 ブログカテゴリ</h3>
             <div class="category-grid">
                 <a href="{{ route('category.index', ['category' => 'programming']) }}" class="category-box">
-                <img src="{{ asset('images/defaults/programming.jpg') }}" alt="Programming">
-                <span>Programming</span>
+                    <img src="{{ asset('images/defaults/programming.jpg') }}" alt="Programming">
+                    <span>Programming</span>
                 </a>
                 <a href="{{ route('category.index', ['category' => 'music']) }}" class="category-box">
-                <img src="{{ asset('images/defaults/music.jpg') }}" alt="Music">
-                <span>Music</span>
+                    <img src="{{ asset('images/defaults/music.jpg') }}" alt="Music">
+                    <span>Music</span>
                 </a>
                 <a href="{{ route('category.index', ['category' => 'food']) }}" class="category-box">
-                <img src="{{ asset('images/defaults/food.jpg') }}" alt="Food">
-                <span>Food</span>
+                    <img src="{{ asset('images/defaults/food.jpg') }}" alt="Food">
+                    <span>Food</span>
                 </a>
                 <a href="{{ route('category.index', ['category' => 'diary']) }}" class="category-box">
-                <img src="{{ asset('images/defaults/diary.jpg') }}" alt="Diary">
-                <span>Diary</span>
+                    <img src="{{ asset('images/defaults/diary.jpg') }}" alt="Diary">
+                    <span>Diary</span>
                 </a>
                 <a href="{{ route('category.index', ['category' => 'memoir']) }}" class="category-box">
-                <img src="{{ asset('images/defaults/memoir.jpg') }}" alt="Memoir">
-                <span>Memoir</span>
+                    <img src="{{ asset('images/defaults/memoir.jpg') }}" alt="Memoir">
+                    <span>Memoir</span>
                 </a>
             </div>
         </div>

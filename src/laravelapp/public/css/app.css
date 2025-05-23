@@ -295,7 +295,38 @@ body {
 }
 
 .signup-form input[type=text],
+.signup-form input[type=email],
 .signup-form input[type=password] {
+  max-width: none;
+  /* ← 上書き */
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: content-box;
+  /* or border-box に上書き */
+  margin-top: 0;
+  /* or your desired value */
+  margin-bottom: 0;
+  /* or your desired value */
+}
+
+.profile-form .form-item {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.profile-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.profile-form input[type=text],
+.profile-form input[type=email],
+.profile-form input[type=password] {
   max-width: none;
   /* ← 上書き */
   width: 100%;
@@ -591,6 +622,7 @@ select,
 
 .mypage-container {
   display: flex;
+  align-items: flex-start;
   gap: 30px;
   padding: 20px;
   background-color: #f9f9f9;
@@ -627,6 +659,16 @@ select,
   margin-top: 10px;
   padding: 8px 12px;
   background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.edit-profile-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #00ffbf;
   color: #fff;
   text-decoration: none;
   border-radius: 5px;

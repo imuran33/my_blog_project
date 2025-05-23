@@ -41,15 +41,17 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('favorite', 'FavoriteController@store')->name('favorite');
         Route::delete('unfavorite', 'FavoriteController@destroy')->name('unfavorite');
     });
+
+    //マイページ閲覧と、プロフィール編集
+    Route::get('mypage', [UsersController::class, 'showMyPage'])->name('showMyPage');
+    Route::get('/profile/edit', 'UsersController@edit')->name('profile.edit');
+    Route::post('/profile/update', 'UsersController@update')->name('profile.update');
 });
 
 //退会
 Route::delete('withdrawal', 'Auth\WithdrawController@destroy')
     ->middleware('auth')
     ->name('withdrawal');
-
-//マイページ
-Route::get('mypage', [UsersController::class, 'showMyPage'])->name('showMyPage');
 
 //記事作成コマンド
 Route::get('create', 'PostController@create')->name('create.post');

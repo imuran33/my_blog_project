@@ -41,7 +41,7 @@ class LoginController extends Controller
     }
 
     //ログイン時のバリデーション処理をオーバーライド
-    public function login(Request $request)
+    public function validateLogin(Request $request)
     {
         // 🔸バリデーションを追加
         $request->validate([

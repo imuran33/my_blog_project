@@ -12,6 +12,7 @@
                 <hr class="section-divider">
                 <h2>{{ Auth::user()->name }}</h2>
                 <p>{{ Auth::user()->email }}</p>
+                <a href="{{ route('profile.edit') }}" class="edit-profile-button">プロフィールを編集</a>
                 @if ($canPost)
                     <a href="{{ route('create.post') }}" class="post-button">投稿作成</a>
                 @endif

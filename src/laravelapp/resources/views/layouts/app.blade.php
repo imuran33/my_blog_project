@@ -16,7 +16,7 @@
 <body>
     @include('commons.header')
 
-    @if (!empty($status))
+    @if (session('status'))
         <!-- 新規完了登録などの通知モーダル -->
         <div id="modal" class="modal">
             <div class="modal-content">

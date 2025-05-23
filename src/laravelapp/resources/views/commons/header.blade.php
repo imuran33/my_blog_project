@@ -1,6 +1,6 @@
 <header class="site-header">
     <div class="header-container">
-        <h1 class="site-title">nakoの徒然なるままに🕊️</h1>
+        <h1 class="site-title">徒然なるままに🕊️</h1>
         <nav class="nav-bar">
             <div class="dropdown">
                 <button class="dropbtn">コンテンツ</button>
