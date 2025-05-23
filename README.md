@@ -27,7 +27,3 @@ composer install
 npm install && npm run dev
 php artisan key:generate
 php artisan migrate --seed
-
-## 詳細資料・開発ログはこちら
-
-▶ [Notionポートフォリオページ](https://www.notion.so/Laravel-1e30a1f1b06980af9a7dc64468676b80)
