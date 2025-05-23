@@ -28,3 +28,11 @@ composer install
 npm install && npm run dev
 php artisan key:generate
 php artisan migrate --seed
+
+
+## キャプチャなど
+トップページのデザイン
+![image](https://github.com/user-attachments/assets/b5b7300e-ee7f-411d-b73a-23b4097ae952)
+記事ページイメージ　※記事に対するいいねや、タグボタンでほかの同じような記事が見れる。
+![image](https://github.com/user-attachments/assets/8cb3dded-ad16-4f73-9f04-335cc8e27450)
+
