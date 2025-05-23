@@ -17,10 +17,12 @@
             @endforeach
         </div>
 
+        @include('favorite.favorite_button', ['post' => $post])
+
         <div class="quill-detail ql-editor">
             {!! $post->content !!}
         </div>
-        <a href="{{ url('/programming') }}">← 一覧に戻る</a>
+        <a href="{{ url("/$category") }}">← 一覧に戻る</a>
 
         <!-- 管理者のみ表示されるリンク -->
         @if (Auth::check() && Auth::user()->is_admin)

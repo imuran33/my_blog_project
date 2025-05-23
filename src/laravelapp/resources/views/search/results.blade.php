@@ -7,10 +7,7 @@
     <h2>「{{ $keyword }}」の検索結果</h2>
 
     @forelse ($posts as $post)
-        <div class="post-summary">
-            <h3><a href="{{ url("/{$post->category}/{$post->id}") }}">{{ $post->title }}</a></h3>
-            <p>{{ Str::limit(strip_tags($post->content), 100) }}</p>
-        </div>
+        @include('post.post_card', ['post' => $post])
     @empty
         <p>該当する投稿が見つかりませんでした。</p>
     @endforelse

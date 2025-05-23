@@ -47,4 +47,24 @@ class User extends Authenticatable
     {
         return $this->is_admin;
     }
+
+    public function favoritePosts()
+    {
+        return $this->belongsToMany(Post::class, 'favorites', 'user_id', 'post_id')->withTimestamps();
+    }
+
+    public function favorite($postId)
+    {
+        $this->favoritePosts()->attach($postId);
+    }
+
+    public function unfavorite($postId)
+    {
+        $this->favoritePosts()->detach($postId);
+    }
+
+    public function hasFavorited($postId)
+    {
+        return $this->favoritePosts()->where('post_id', $postId)->exists();
+    }
 }

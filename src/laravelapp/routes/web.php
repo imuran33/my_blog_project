@@ -21,21 +21,9 @@ use App\Http\Controllers\Auth\WithdrawController;
 |
 */
 
-Route::get('/', 'UsersController@index');
-
-// 一覧ページ
-Route::prefix('/')->group(function () {
-    Route::get('programming', [ProgrammingController::class, 'index'])->name('programming.index');
-    Route::get('music', [MusicController::class, 'index'])->name('music.index');
-    Route::get('food', [FoodController::class, 'index'])->name('food.index');
-    Route::get('diary', [DiaryController::class, 'index'])->name('diary.index');
-});
-
-// 記事詳細ページ
-Route::get('programming/{id}', [ProgrammingController::class, 'show'])->name('programming.show');
-Route::get('music/{id}', [MusicController::class, 'show'])->name('music.show');
-Route::get('food/{id}', [FoodController::class, 'show'])->name('food.show');
-Route::get('diary/{id}', [DiaryController::class, 'show'])->name('diary.show');
+Route::get('/', 'UsersController@index')->name('welcome');
+//いいね表示
+Route::get('favorites', 'UsersController@favorites')->name('user.favorites');
 
 // ユーザ新規登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
@@ -46,13 +34,24 @@ Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
+// ログイン後
+Route::group(['middleware' => 'auth'], function () {
+    // いいね実行・削除
+    Route::group(['prefix' => 'posts/{id}'], function () {
+        Route::post('favorite', 'FavoriteController@store')->name('favorite');
+        Route::delete('unfavorite', 'FavoriteController@destroy')->name('unfavorite');
+    });
+
+    //マイページ閲覧と、プロフィール編集
+    Route::get('mypage', [UsersController::class, 'showMyPage'])->name('showMyPage');
+    Route::get('/profile/edit', 'UsersController@edit')->name('profile.edit');
+    Route::post('/profile/update', 'UsersController@update')->name('profile.update');
+});
+
 //退会
 Route::delete('withdrawal', 'Auth\WithdrawController@destroy')
     ->middleware('auth')
     ->name('withdrawal');
-
-//マイページ
-Route::get('mypage', [UsersController::class, 'showMyPage'])->name('showMyPage');
 
 //記事作成コマンド
 Route::get('create', 'PostController@create')->name('create.post');
@@ -68,3 +67,9 @@ Route::post('/post/{id}/update', 'PostController@update')->name('update.post');
 //検索機能
 Route::get('/tag/{name}', [TagController::class, 'showPostsByTag'])->name('tag.posts');
 Route::get('/search', [PostController::class, 'search'])->name('post.search');
+
+// 一覧ページ
+Route::get('{category}', [PostController::class, 'index'])->name('category.index');
+
+// 記事詳細ページ
+Route::get('{category}/{id}', [PostController::class, 'show'])->name('category.show');

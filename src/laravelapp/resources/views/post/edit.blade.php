@@ -28,6 +28,7 @@
             <option value="music" {{ $post->category == 'music' ? 'selected' : '' }}>音楽</option>
             <option value="food" {{ $post->category == 'food' ? 'selected' : '' }}>食べ物</option>
             <option value="diary" {{ $post->category == 'diary' ? 'selected' : '' }}>日記</option>
+            <option value="memoir" {{ $post->category == 'memoir' ? 'selected' : '' }}>回顧録</option>
         </select>
 
         <input name="tags" id="tags" placeholder="タグを入力（カンマ区切り）">

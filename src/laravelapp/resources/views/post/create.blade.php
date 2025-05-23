@@ -28,6 +28,7 @@
             <option value="music">音楽</option>
             <option value="food">食べ物</option>
             <option value="diary">日記</option>
+            <option value="memoir">回顧録</option>
         </select>
         
         <input name="tags" id="tags" placeholder="タグを入力（カンマ区切り）">
